@@ -13,7 +13,6 @@ async function randomImage(query,page)
     console.log(images);
     return await images;
 }
-randomImage()
 function showImage(images)
 {
     images.map(image => {
@@ -32,6 +31,7 @@ function showImage(images)
 }
 form.addEventListener("submit",(event)=>{
     event.preventDefault();
+    result.innerHTML = "";
     const query = searchInput.value;
     const page = randomImage(query,1);
     page.then(page => {showImage(page.results);allPages = page.total_pages});
